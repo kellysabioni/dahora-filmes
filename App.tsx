@@ -30,18 +30,25 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 20,
     flex: 1,
     justifyContent: "center",
-    /* alignItems: "center", */
   },
   viewLogo: {
     backgroundColor: "lightgreen",
-    flex: 2,
+    flex: 3,
+    justifyContent: "flex-end",
+    alignItems: "center",
   },
   viewBotoes: {
     backgroundColor: "orange",
-    flex: 1,
+    flex: 2,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
   viewRodape: {
     backgroundColor: "pink",
     flex: 0.5,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
