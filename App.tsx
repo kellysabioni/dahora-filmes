@@ -9,7 +9,7 @@ export default function App() {
   });
 
   // Se a fonte ainda não foi carregada
-  if (fonteCarregada) {
+  if (!fonteCarregada) {
     return (
       <Text style={{ color: "red", fontSize: 22 }}>Carregando Fonte...</Text>
     );
@@ -21,7 +21,7 @@ export default function App() {
         <StatusBar style="auto" />
         <View style={estilos.viewLogo}>
           <Image source={require("./assets/dahora.png")} style={estilos.logo} />
-          <Text>Da hora Filmes</Text>
+          <Text style={estilos.tituloApp}>Da hora Filmes</Text>
         </View>
         <View style={estilos.viewBotoes}>
           <Button title="Buscar Filmes" />
@@ -52,6 +52,11 @@ const estilos = StyleSheet.create({
   logo: {
     width: 128,
     height: 128,
+  },
+  tituloApp: {
+    fontFamily: "Monoton", // Aqui você usa o nome da fonte carregada
+    fontSize: 32,
+    color: "#5451a6",
   },
   viewBotoes: {
     backgroundColor: "orange",
