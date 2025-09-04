@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
@@ -11,12 +11,12 @@ export default function App() {
           <Text>Da hora Filmes</Text>
         </View>
         <View style={estilos.viewBotoes}>
-          <Text>Botão 1</Text>
-          <Text>Botão 2</Text>
+          <Button title="Buscar Filmes" />
+          <Button title="Favoritos" />
         </View>
         <View style={estilos.viewRodape}>
-          <Text>Botão 3</Text>
-          <Text>Botão 4</Text>
+          <Button title="Privacidade" />
+          <Button title="Sobre" />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -29,6 +29,7 @@ const estilos = StyleSheet.create({
     backgroundColor: "#fff9c4",
     paddingHorizontal: 20,
     flex: 1,
+
     justifyContent: "center",
   },
   viewLogo: {
