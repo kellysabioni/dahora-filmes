@@ -28,15 +28,27 @@ export default function App() {
         </View>
         <View style={estilos.viewBotoes}>
           <Pressable style={estilos.botaoInicial}>
-            <Ionicons name="search" size={24} color="white" />
+            <Ionicons name="search" size={18} color="white" />
             <Text style={estilos.textoBotao}> Buscar Filmes </Text>
           </Pressable>
-
-          <Button title="Favoritos" />
+          <Pressable style={estilos.botaoInicial}>
+            <Ionicons name="star" size={18} color="yellow" />
+            <Text style={estilos.textoBotao}> Favoritos </Text>
+          </Pressable>
         </View>
         <View style={estilos.viewRodape}>
-          <Button title="Privacidade" />
-          <Button title="Sobre" />
+          <Pressable style={estilos.botaoInicial}>
+            <Ionicons name="lock-closed" size={18} color="white" />
+            <Text style={estilos.textoBotao}> Privacidade </Text>
+          </Pressable>
+          <Pressable style={estilos.botaoInicial}>
+            <Ionicons
+              name="information-circle-outline"
+              size={18}
+              color="white"
+            />
+            <Text style={estilos.textoBotao}> Sobre </Text>
+          </Pressable>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -66,7 +78,6 @@ const estilos = StyleSheet.create({
     color: "#5451a6",
   },
   viewBotoes: {
-    backgroundColor: "orange",
     flex: 2,
     flexDirection: "row",
     justifyContent: "space-evenly",
@@ -83,10 +94,13 @@ const estilos = StyleSheet.create({
     color: "#fff",
   },
   viewRodape: {
-    backgroundColor: "pink",
+    backgroundColor: "#5451a6",
+    borderRadius: 10,
     flex: 0.5,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: 5,
+    padding: 10,
   },
 });
