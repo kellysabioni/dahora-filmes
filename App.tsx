@@ -1,9 +1,18 @@
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
-import { Button, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Button,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 // Importando bibilioteca interna vector-icons
 import { Ionicons } from "@expo/vector-icons";
+import Loading from "./src/components/Loading";
 
 export default function App() {
   const [fonteCarregada] = useFonts({
@@ -12,9 +21,7 @@ export default function App() {
 
   // Se a fonte ainda não foi carregada
   if (!fonteCarregada) {
-    return (
-      <Text style={{ color: "red", fontSize: 22 }}>Carregando Fonte...</Text>
-    );
+    return <Loading />;
   }
 
   return (
