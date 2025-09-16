@@ -2,6 +2,10 @@
 
 Aplicativo desenvolvido utilizando React Nativa com Expo
 
+## 03_navegacao-expo-router-e-telas-privacidade-sobre
+
+---
+
 ## 02_mais-estilos-logo-font-icones-pressable
 
 - Aplicação da imagem do logo usando o componente <Image>
@@ -10,6 +14,8 @@ Aplicativo desenvolvido utilizando React Nativa com Expo
 - Substituição do `Button` por `Pressable` para a criação de botões customizados
 - Uso de ícones através do `@expo-vector-icons`
 - Aplicação do `ActivityIndicator` para criação de um componente `Loading`
+
+---
 
 ## 01_estrutura-e-estilizacao-basica
 
