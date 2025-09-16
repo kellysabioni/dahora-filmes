@@ -27,21 +27,41 @@ export default function App() {
           <Text style={estilos.tituloApp}>Da hora Filmes</Text>
         </View>
         <View style={estilos.viewBotoes}>
-          <Pressable style={estilos.botaoInicial}>
+          <Pressable
+            style={({ pressed }) => [
+              estilos.botaoInicial,
+              pressed && estilos.botaoPressionado,
+            ]}
+          >
             <Ionicons name="search" size={18} color="white" />
             <Text style={estilos.textoBotao}> Buscar Filmes </Text>
           </Pressable>
-          <Pressable style={estilos.botaoInicial}>
+          <Pressable
+            style={({ pressed }) => [
+              estilos.botaoInicial,
+              pressed && estilos.botaoPressionado,
+            ]}
+          >
             <Ionicons name="star" size={18} color="yellow" />
             <Text style={estilos.textoBotao}> Favoritos </Text>
           </Pressable>
         </View>
         <View style={estilos.viewRodape}>
-          <Pressable style={estilos.botaoInicial}>
+          <Pressable
+            style={({ pressed }) => [
+              estilos.botaoInicial,
+              pressed && estilos.botaoPressionado,
+            ]}
+          >
             <Ionicons name="lock-closed" size={18} color="white" />
             <Text style={estilos.textoBotao}> Privacidade </Text>
           </Pressable>
-          <Pressable style={estilos.botaoInicial}>
+          <Pressable
+            style={({ pressed }) => [
+              estilos.botaoInicial,
+              pressed && estilos.botaoPressionado,
+            ]}
+          >
             <Ionicons
               name="information-circle-outline"
               size={18}
@@ -81,7 +101,7 @@ const estilos = StyleSheet.create({
     flex: 2,
     flexDirection: "row",
     justifyContent: "space-evenly",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   botaoInicial: {
     backgroundColor: "#5451a6",
@@ -89,6 +109,15 @@ const estilos = StyleSheet.create({
     borderRadius: 8,
     flexDirection: "row",
     alignItems: "center",
+  },
+  botaoPressionado: {
+    backgroundColor: "#6a67c9",
+    transform: [{ scale: 0.95 }],
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 6,
   },
   textoBotao: {
     color: "#fff",
