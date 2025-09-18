@@ -4,6 +4,14 @@ Aplicativo desenvolvido utilizando React Nativa com Expo
 
 ## 03_navegacao-expo-router-e-telas-privacidade-sobre
 
+- Instalação da lib `expo-router` e suas dependências
+- Ajustes e atualização para o Expo SDK 54
+- Configuração da `Stack` (pilha de navegação das telas) no arquivo `_layout.tsx`
+- Troca da `StatusBar` para a versão React Native
+- Migração do conteúdo/estrutura do `App.tsx` para o `_layout.tsx` e para as páginas correspondentes (index, privacidade e sobre)
+- Confiuração das rotas usando componente `Link` do expo-router
+- Uso do componente `ScrollView` para telas com barra de rolagem
+
 ---
 
 ## 02_mais-estilos-logo-font-icones-pressable
