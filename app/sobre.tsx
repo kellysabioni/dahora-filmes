@@ -10,7 +10,7 @@ export default function Sobre() {
           headerTitle: "Sobre o App",
         }}
       />
-      <SafeAreaView>
+      <SafeAreaView style={estilos.container}>
         <View style={estilos.card}>
           <Image
             source={require("../assets/dahora.png")}
