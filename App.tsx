@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 // Importando bibilioteca interna vector-icons
+
+// @ts-ignore
 import { Ionicons } from "@expo/vector-icons";
 import Loading from "./src/components/Loading";
 
