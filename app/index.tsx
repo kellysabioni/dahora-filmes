@@ -85,7 +85,7 @@ const estilos = StyleSheet.create({
   },
   botaoInicial: {
     backgroundColor: "#5451a6",
-    padding: 16,
+    padding: 12,
     borderRadius: 8,
     flexDirection: "row",
     alignItems: "center",
@@ -109,7 +109,7 @@ const estilos = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 5,
-    padding: 10,
+    marginBottom: 6,
+    padding: 2,
   },
 });
