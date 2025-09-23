@@ -11,11 +11,14 @@ import {
 
 // @ts-ignore
 import { Ionicons } from "@expo/vector-icons";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 
 export default function Busca() {
+  // Hook para navegação através de programação usando o router
+  const router = useRouter();
+
   // Hook para armanezar o que for digitado pelo usuário
   const [filme, setFilme] = useState<string>("");
 
