@@ -27,6 +27,9 @@ export default function Busca() {
       Vibration.vibrate(400);
       return Alert.alert("Ops! ", "Você deve digitar um filme!");
     }
+
+    //Navega para a tela de resultado, passadno o flme digitado como parâmetro para a rota
+    router.push(`/resultados?filme=${filme}`);
   };
   return (
     <>
