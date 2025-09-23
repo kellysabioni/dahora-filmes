@@ -5,8 +5,11 @@ import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useState } from "react";
 
 export default function Busca() {
+  // Hook para armanezar o que for digitado pelo usuário
+  const [filme, setFilme] = useState<string>("");
   return (
     <>
       <Stack.Screen
