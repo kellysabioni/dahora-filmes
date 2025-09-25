@@ -12,6 +12,9 @@ export default function Resultados() {
   // Criando um state para gerenciar a lista de filmes obtida da API
   const [resultados, setResultados] = useState<Filme[]>([]);
 
+  // Criando um state para alternar a exibição de um Loading
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     //Se não houver filme definido
     if (!filme) return;
