@@ -3,11 +3,13 @@ import { StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { ParametrosBusca } from "@/src/types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "@/src/services/api";
 
 export default function Resultados() {
   const { filme } = useLocalSearchParams<ParametrosBusca>();
+
+  const [resultados, setResultados] = useState<ParametrosBusca>();
 
   useEffect(() => {
     //Se não houver filme definido
