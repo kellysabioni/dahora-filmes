@@ -16,8 +16,10 @@ export default function Resultados() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    //Se não houver filme definido
     if (!filme) return;
+
+    // Iniciamos o Loading
+    setLoading(true);
 
     api
       .get("/search/movie", {
@@ -27,9 +29,13 @@ export default function Resultados() {
           include_adult: false,
         },
       })
-      .then((resposta) => console.log(resposta.data.results))
-      .catch((erro) => console.log(erro));
-  });
+      .then((resposta) => setResultados(resposta.data.results))
+      .catch((erro) => console.log(erro))
+
+      // Acabou o processo de busca? Mesmo com sucesso ou erro?
+      // Então, finalmente(finally), desative o loading
+      .finally(() => setLoading(false));
+  }, [filme]);
 
   return (
     <>
