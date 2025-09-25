@@ -11,10 +11,7 @@ export default function index() {
 
       <SafeAreaView style={estilos.container}>
         <View style={estilos.viewLogo}>
-          <Image
-            source={require("../assets/dahora.png")}
-            style={estilos.logo}
-          />
+          <Image source={require("@/assets/dahora.png")} style={estilos.logo} />
           <Text style={estilos.tituloApp}>Da hora Filmes</Text>
         </View>
 

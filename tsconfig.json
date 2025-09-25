@@ -4,7 +4,7 @@
     "strict": true,
     "baseUrl": ".", // caminho da raiz
     "paths": {
-      "@/": ["./*"] // apelido/alias para chegar a raiz
+      "@/*": ["./*"] // apelido/alias para chegar a raiz
     }
   }
 }
