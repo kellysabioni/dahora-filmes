@@ -6,6 +6,17 @@ Aplicativo desenvolvido utilizando React Nativa com Expo
 
 Aplicativo desenvolvido utilizando React Native com Expo.
 
+## 06_finalizcao-de-resultados-e-componentes-adicionais
+
+- Definindo alias/apelido para os caminhos (tsconfig.json)
+- Adição de states para resultados da busca por filmes e controle do loading
+- Uso do componente nativo `<FlatList>` para listas de dados dinâmicos
+- Ajsute do FlatList para renderizaçõ de componente `<CardFilme>` com dados de cada filme
+- Ajuste do FlatList para renderização de componente `<ItemVazio>` caso não tenha resultados na busca de filme
+- Ajuste do Layout do FlatList para o modo de 2 colunas (grid)
+- Adição de imagem do filme e imagem alternativa em CardFilme
+- Adição de créditos ao TMDB na tela Sobre
+
 ---
 
 ## 05_uso-da-api-com-config-env
