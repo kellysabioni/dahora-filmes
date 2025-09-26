@@ -1,5 +1,6 @@
 // app/detalhes/[id].tsx
 import { FilmeDetalhes, ParametrosDetalhes } from "@/src/types";
+import { formatarData } from "@/src/utils";
 import { Stack, useLocalSearchParams } from "expo-router";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -40,10 +41,14 @@ export default function Detalhes() {
               <Text style={estilos.detalhes}>
                 ⭐ {filme.vote_average.toFixed(1)}
               </Text>
-              <Text style={estilos.detalhes}>📅 {filme.release_date} </Text>
+              <Text style={estilos.detalhes}>
+                📅 {formatarData(filme.release_date)}{" "}
+              </Text>
             </View>
             <Text style={estilos.sinopseTitulo}>Sinopse:</Text>
-            <Text style={estilos.sinopse}> {filme.overview} </Text>
+            <Text style={estilos.sinopse}>
+              {filme.overview || "Não disponível"}
+            </Text>
           </View>
         </ScrollView>
       </SafeAreaView>
