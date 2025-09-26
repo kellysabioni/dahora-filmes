@@ -1,9 +1,17 @@
 // app/detalhes/[id].tsx
-import { Stack } from "expo-router";
+import { FilmeDetalhes, ParametrosDetalhes } from "@/src/types";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Detalhes() {
+  // Capturando os dados do filme completo via params e em formato de string/json
+  // Colocamos o alias/apelido como filmeString
+  const { filme: filmeString } = useLocalSearchParams<ParametrosDetalhes>();
+
+  // Convertendo a string do filme para um objeto
+  const filme: FilmeDetalhes = JSON.parse(filmeString);
+
   return (
     <>
       <Stack.Screen
@@ -14,15 +22,28 @@ export default function Detalhes() {
 
       <SafeAreaView style={estilos.container}>
         <ScrollView>
-          <View style={estilos.imagemContainer}></View>
+          <View style={estilos.imagemContainer}>
+            <Image
+              source={
+                filme.backdrop_path
+                  ? {
+                      uri: `https://image.tmdb.org/t/p/original/${filme.backdrop_path}`,
+                    }
+                  : require("@/assets/foto-alternativa.jpg")
+              }
+              style={estilos.imagem}
+            />
+          </View>
           <View style={estilos.corpo}>
-            <Text style={estilos.titulo}></Text>
+            <Text style={estilos.titulo}>{filme.title}</Text>
             <View style={estilos.viewDetalhes}>
-              <Text style={estilos.detalhes}>⭐</Text>
-              <Text style={estilos.detalhes}>📅</Text>
+              <Text style={estilos.detalhes}>
+                ⭐ {filme.vote_average.toFixed(1)}
+              </Text>
+              <Text style={estilos.detalhes}>📅 {filme.release_date} </Text>
             </View>
             <Text style={estilos.sinopseTitulo}>Sinopse:</Text>
-            <Text style={estilos.sinopse}></Text>
+            <Text style={estilos.sinopse}> {filme.overview} </Text>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -49,6 +70,7 @@ const estilos = StyleSheet.create({
   imagem: {
     width: "100%",
     height: "100%",
+    resizeMode: "cover",
   },
   corpo: {
     padding: 16,
