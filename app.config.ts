@@ -7,6 +7,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: "DáHora Filmes",
   slug: "dahora-filmes",
+  owner: "kellysabioni", // necessario para EAS
   scheme: "dahora",
   version: "1.0.0",
   orientation: "portrait",
@@ -34,7 +35,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   extra: {
     apiKey: process.env.API_KEY,
     eas: {
-      projectId: "c50cd064-1eb6-4be3-b067-184cc75c8f0b",
+      projectId: "c50cd064-1eb6-4be3-b067-184cc75c8f0b", // necessario para EAS
     },
   },
 });
