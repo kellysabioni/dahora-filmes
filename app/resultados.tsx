@@ -21,7 +21,7 @@ export default function Resultados() {
   useEffect(() => {
     if (!filme) return;
 
-    // Iniciamos o Loading
+    // Ao começar as ações de busca na API, iniciamos o loading
     setLoading(true);
 
     api
@@ -33,10 +33,10 @@ export default function Resultados() {
         },
       })
       .then((resposta) => setResultados(resposta.data.results))
-      .catch((erro) => console.log(erro))
+      .catch((err) => console.error(err))
 
       // Acabou o processo de busca? Mesmo com sucesso ou erro?
-      // Então, finalmente(finally), desative o loading
+      // Então, finalmente, desative o loading
       .finally(() => setLoading(false));
   }, [filme]);
 

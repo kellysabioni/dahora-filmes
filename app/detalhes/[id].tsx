@@ -42,7 +42,7 @@ export default function Detalhes() {
                 ⭐ {filme.vote_average.toFixed(1)}
               </Text>
               <Text style={estilos.detalhes}>
-                📅 {formatarData(filme.release_date)}{" "}
+                📅 {formatarData(filme.release_date)}
               </Text>
             </View>
             <Text style={estilos.sinopseTitulo}>Sinopse:</Text>
@@ -75,7 +75,7 @@ const estilos = StyleSheet.create({
   imagem: {
     width: "100%",
     height: "100%",
-    resizeMode: "cover",
+    resizeMode: "cover", // adicione o modo de redimensionamento
   },
   corpo: {
     padding: 16,

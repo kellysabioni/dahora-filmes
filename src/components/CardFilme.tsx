@@ -16,17 +16,18 @@ import { useRouter } from "expo-router";
 import { salvarFilmeFavorito } from "../services/storage-favoritos";
 
 export default function CardFilme({ filme }: CardFilmeProps) {
-  const { id, title, poster_path } = filme;
+  // Extraindo cada prop de dentro do filme
+  const { title, poster_path } = filme;
 
-  // Importando useRouter para permitir a navegação através de programação
+  // Importando o router para permitir a navegação através de programação
   const router = useRouter();
 
   const leiaMais = () => {
     router.push({
       pathname: "/detalhes/[id]",
       params: {
-        // Convertemos o objeto filme completo para string//json
-        // enviamos como parâmetro para a rota detalhes
+        // Convertemos o filme completo para string/json
+        // enviamos como parâmetro para a rota de detalhes
         filme: JSON.stringify(filme),
       },
     });
@@ -36,9 +37,9 @@ export default function CardFilme({ filme }: CardFilmeProps) {
     salvarFilmeFavorito(filme)
       .then((salvou) => {
         if (salvou) {
-          Alert.alert("Favoritos", "Filme salvo com sucesso");
+          Alert.alert("Favoritos", "Filme salvo com sucesso!");
         } else {
-          Alert.alert("Favoritos", "Filme já está nos favoritos");
+          Alert.alert("Favoritos", "Filme já está nos favoritos!");
           Vibration.vibrate();
         }
       })
@@ -52,12 +53,15 @@ export default function CardFilme({ filme }: CardFilmeProps) {
     <View style={estilos.card}>
       <Image
         source={
+          // Se exister valor no poster_path, mostra imagem do filme
+          // Senão, mostra a foto alternativa
           poster_path
             ? { uri: `https://image.tmdb.org/t/p/original/${poster_path}` }
             : require("@/assets/foto-alternativa.jpg")
         }
         style={estilos.imagem}
       />
+
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}> {title} </Text>
         <View style={estilos.botoes}>
@@ -118,7 +122,7 @@ const estilos = StyleSheet.create({
     width: "100%",
   },
   botao: {
-    padding: 8,
+    padding: 4,
     borderWidth: 1,
     borderColor: "#5451a6",
     borderRadius: 4,

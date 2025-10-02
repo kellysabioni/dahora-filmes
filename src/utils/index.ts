@@ -1,7 +1,7 @@
 // src/utils/index.ts
 
 export function formatarData(data: string): string {
-  if (!data) return "N/D";
+  if (!data) return "Não disponível";
 
   // Exemplo de data recebida: 2012-11-26
   const dataQuebrada = data.split("-");

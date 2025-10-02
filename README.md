@@ -1,12 +1,18 @@
-# Dá Hora Filmes
-
-Aplicativo desenvolvido utilizando React Nativa com Expo
-
 # Dá Horas Filmes
 
 Aplicativo desenvolvido utilizando React Native com Expo.
 
+---
+
 ## 08_gerenciamento-de-favoritos
+
+- Instalação da lib `AsyncStorage`
+- Criação da tela de favoritos (básica)
+- Criação do service `storage-favoritos.ts` com as funções de manipulação do Storage (armazenamento físico no aparelho)
+- Carregamento dos dados com auxílio de useEffect
+- Exibição em FlatList
+- Uso de funções intermediárias em favoritos.tsx para acionar as funções do storage para salvar, apagar e apagarTudo.
+- Uso de Alert com botões Sim e Não para apagar todos os favoritos
 
 ---
 
@@ -14,20 +20,20 @@ Aplicativo desenvolvido utilizando React Native com Expo.
 
 - Criação de rota dinâmica: `app/detalhes/[id].tsx`
 - Adiciona os dados do filme como string para o parâmetro da rota de detalhes
-- Em detalhes, captura o filme como string e converte para o objeto
+- Em Detalhes, captura o filme como string e converte para objeto
 - Exibe os dados do filme nos componentes
-- Formata a data e ajusta lógica para exibir "Não dísponivel" qunaod não tiver data e sinopse
+- Formata a data e ajusta lógica para exibir "Não disponível" quando não tiver data e sinopse
 
 ---
 
-## 06_finalizcao-de-resultados-e-componentes-adicionais
+## 06_finalizacao-do-resultados-e-componentes-adicionais
 
 - Definindo alias/apelido para os caminhos (tsconfig.json)
 - Adição de states para resultados da busca por filmes e controle do loading
 - Uso do componente nativo `<FlatList>` para listas de dados dinâmicos
-- Ajsute do FlatList para renderizaçõ de componente `<CardFilme>` com dados de cada filme
+- Ajuste do FlatList para renderização de componente `<CardFilme>` com dados de cada filme
 - Ajuste do FlatList para renderização de componente `<ItemVazio>` caso não tenha resultados na busca de filme
-- Ajuste do Layout do FlatList para o modo de 2 colunas (grid)
+- Ajuste do layout do FlatLista para modo de 2 colunas (grid)
 - Adição de imagem do filme e imagem alternativa em CardFilme
 - Adição de créditos ao TMDB na tela Sobre
 
@@ -46,8 +52,8 @@ Aplicativo desenvolvido utilizando React Native com Expo.
 
 ## 04_telas-basicas-de-busca-e-resultados
 
-- Ciação da versão básica das telas `Busca` e `Resultados`
-- Uso do componente `TextInput` para entrada dos dados na tela
+- Criação da versão básicas da telas `Busca` e `Resultados`
+- Uso do componente `TextInput` para entrada de dados na tela
 - Uso de state para gerenciar o filme digitado no campo de entrada
 - Validação básica usando `Alert` e `Vibration`
 - Navegação via programação com `useRouter` + passagem de parâmetros
@@ -62,7 +68,7 @@ Aplicativo desenvolvido utilizando React Native com Expo.
 - Configuração da `Stack` (pilha de navegação das telas) no arquivo `_layout.tsx`
 - Troca da `StatusBar` para a versão React Native
 - Migração do conteúdo/estrutura do `App.tsx` para o `_layout.tsx` e para as páginas correspondentes (index, privacidade e sobre)
-- Confiuração das rotas usando componente `Link` do expo-router
+- Configuração das rotas usando componente `Link` do expo-router
 - Uso do componente `ScrollView` para telas com barra de rolagem
 
 ---
@@ -72,7 +78,7 @@ Aplicativo desenvolvido utilizando React Native com Expo.
 - Aplicação da imagem do logo usando o componente <Image>
 - Adição e configuração de fonte personalizada usando o `expo-font` e `useFonts`
 - Estilização do App.tsx usando recursos do `StyleSheet`
-- Substituição do `Button` por `Pressable` para a criação de botões customizados
+- Substituição do `Button` por `Pressable` para criação de botões customizados
 - Uso de ícones através do `@expo-vector-icons`
 - Aplicação do `ActivityIndicator` para criação de um componente `Loading`
 
@@ -85,12 +91,10 @@ Aplicativo desenvolvido utilizando React Native com Expo.
 - Configuração dos detalhes do aplicativo em `app.json`
 - Instalação da dependência (lib) `react-native-safe-area-context`
 
-Use o comando
-
-> `npx expo install react-native-safe-area-context`
+Use o comando: `npx expo install react-native-safe-area-context`
 
 _Utilizamos o `expo install` para garantir a instalação de dependências (ou libs) que sejam compatíveis com a versão de SDK do Expo usada em seu projeto._
 
-- Refatoramos a etrutura e estilização do `App.tsx` usando os componentes: `SafeAreaProvider`, `SafeAreaView`, `StatusBar` (do expo), `View`, `Text` e `Button`
+- Refatoramos a estrutura e estilização do `App.tsx` usando os componentes: `SafeAreaProvider`, `SafeAreaView`, `StatusBar` (do expo), `View`, `Text` e `Button`
 
-- Uso do flex para determinar o tamamnho das views
+- Uso do flex para determinar o tamanho das views.

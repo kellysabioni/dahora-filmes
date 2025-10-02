@@ -5,16 +5,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function Sobre() {
   return (
     <>
-      <Stack.Screen
-        options={{
-          headerTitle: "Sobre o App",
-        }}
-      />
+      <Stack.Screen options={{ headerTitle: "Sobre o App" }} />
       <SafeAreaView style={estilos.container}>
         <ScrollView>
           <View style={estilos.card}>
             <Image
-              source={require("@/assets/dahora.png")}
+              source={require("../assets/dahora.png")}
               style={estilos.logo}
             />
             <Text style={estilos.titulo}>Dá Hora Filmes!</Text>
@@ -61,6 +57,7 @@ const estilos = StyleSheet.create({
     padding: 20,
   },
   card: {
+    marginBottom: 10,
     backgroundColor: "#fff",
     borderRadius: 10,
     padding: 20,
@@ -71,7 +68,6 @@ const estilos = StyleSheet.create({
     shadowRadius: 4,
     alignItems: "center",
     width: "100%",
-    marginBottom: 14,
   },
   logo: {
     width: 100,

@@ -1,4 +1,4 @@
-// Módulo responsável pelo acesso a a dados de variáveis de ambiente
+// Módulo responsável pelo acesso à dados de variáveis de ambiente
 import "dotenv/config";
 
 import { ExpoConfig, ConfigContext } from "@expo/config";
@@ -12,11 +12,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: "portrait",
   icon: "./assets/icone.png",
   userInterfaceStyle: "automatic",
+  newArchEnabled: true,
   splash: {
     image: "./assets/splash-dahora.png",
     resizeMode: "contain",
     backgroundColor: "#ffffff",
   },
+  platforms: ["ios", "android"],
   ios: {
     supportsTablet: true,
   },
@@ -27,8 +29,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
     edgeToEdgeEnabled: true,
   },
-  platforms: ["ios", "android"],
   plugins: ["expo-font", "expo-router"],
+  // Acessando a API_KEY através do dotenv e guardando na chave apiKey
   extra: {
     apiKey: process.env.API_KEY,
   },

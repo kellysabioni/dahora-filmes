@@ -8,13 +8,14 @@ import {
   FlatList,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { router, Stack, useRouter } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 
 // @ts-ignore
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { Filme, ItemDaListaDeFavoritosProps } from "@/src/types";
 import {
+  apagarTodosFavoritos,
   buscarFavoritos,
   removerFilmeFavorito,
 } from "@/src/services/storage-favoritos";
@@ -30,7 +31,7 @@ export default function Favoritos() {
       .then((lista) => {
         setFavoritos(lista);
       })
-      .catch((error) => console.error("Erro ao carregar os filmes: " + error))
+      .catch((erro) => console.error("Erro ao carregar os filmes:" + erro))
       .finally(() => setLoading(false));
   }, []);
 
@@ -48,7 +49,7 @@ export default function Favoritos() {
         });
       }}
     >
-      <Text style={estilos.titulo}>{item.title} </Text>
+      <Text style={estilos.titulo}>{item.title}</Text>
       <Pressable
         style={estilos.botaoLixeira}
         // Ao chamar uma função (no caso, removerFilme) que necessite de parâmetros (no caso, item.id), obrigatoriamente, a prop de evento (onPress) deve usar a sintaxe com arrow function
@@ -69,7 +70,7 @@ export default function Favoritos() {
 
   const removerFilme = async (id: number) => {
     try {
-      // Executamos a emoção do filme no storage
+      // Executamos a remoção do filme no storage
       await removerFilmeFavorito(id);
 
       // Carregamos novamente a lista de filmes (já sem o filme excluído)
@@ -83,6 +84,28 @@ export default function Favoritos() {
     }
   };
 
+  const apagarTudo = () => {
+    Alert.alert(
+      "❗Apagar todos os favoritos",
+      "Tem certeza que deseja apagar todos os filmes favoritos?",
+      [
+        { text: "Não", style: "cancel" },
+        {
+          text: "Sim",
+          onPress: async () => {
+            try {
+              await apagarTodosFavoritos();
+              setFavoritos([]);
+            } catch (error) {
+              console.error(error);
+              Alert.alert("Erro", "Não foi possível apagar os favoritos");
+            }
+          },
+        },
+      ]
+    );
+  };
+
   return (
     <>
       <Stack.Screen
@@ -90,7 +113,7 @@ export default function Favoritos() {
           headerTitle: "Meus Favoritos",
           headerRight: () =>
             favoritos.length > 0 && (
-              <Pressable>
+              <Pressable onPress={apagarTudo}>
                 <Ionicons name="trash" size={24} color="#fff" />
               </Pressable>
             ),
@@ -100,12 +123,12 @@ export default function Favoritos() {
         {loading ? (
           <Loading />
         ) : (
-          <View style={estilos.container}>
+          <View style={estilos.viewLista}>
             <FlatList
               data={favoritos}
               keyExtractor={(item) => item.id.toString()}
-              renderItem={itemDaListaDeFavoritos}
               showsVerticalScrollIndicator={false}
+              renderItem={itemDaListaDeFavoritos}
               ListEmptyComponent={ListaVazia}
             />
           </View>

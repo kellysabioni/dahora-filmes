@@ -12,14 +12,14 @@ const STORAGE_FAVORITOS = "filmes_favoritos";
  */
 export async function carregar(): Promise<Filme[]> {
   try {
-    // Lê a string salva no storage
+    // Lê a string salva no storage (pode vir null)
     const favoritosArmazenados = await AsyncStorage.getItem(STORAGE_FAVORITOS);
 
     // Havendo favoritosArmazenados (como string), retorna convertido para objeto.
     // Senão, retorna um array vazio
     return favoritosArmazenados ? JSON.parse(favoritosArmazenados) : [];
   } catch (error) {
-    console.error("Erro ao ler storage" + error);
+    console.error("Erro ao ler storage:" + error);
     return [];
   }
 }
@@ -43,7 +43,9 @@ export async function salvarLista(lista: Filme[]): Promise<void> {
 export async function salvarFilmeFavorito(filme: Filme): Promise<boolean> {
   const favoritos = await carregar();
 
-  /* Verifica se um filme já existe com o mesmo id na lista/storage de favoritos. A função some() retorna true se encontrar pelo menos 1 item que satisfaça a condição */
+  /* Verifica se um filme já existe com o mesmo id na lista/storage
+   de favoritos. A função some() retorna true se encontrar pelo menos
+   1 item que satisfaça a condição. */
   if (favoritos.some((filmeExistente) => filmeExistente.id === filme.id)) {
     // Já existe? Não precisamos salvar de novo
     // Por isso, retornamos false para indicar que o filme NÃO FOI adicionado
@@ -51,7 +53,7 @@ export async function salvarFilmeFavorito(filme: Filme): Promise<boolean> {
   }
 
   // Se chegou até aqui, é porque esse filme ainda não tinha sido salvo.
-  // Portanto, adicionamos à lista de favooritos
+  // Portanto, adicionamos à lista de favoritos
   favoritos.push(filme);
 
   // Salva a lista atualizada no storage
@@ -62,33 +64,30 @@ export async function salvarFilmeFavorito(filme: Filme): Promise<boolean> {
 }
 
 /**
- * Chamar a função carregar e Retornar a lista de favoritos
+ * Chama a função carregar e retorna a lista de favoritos (filmes)
  */
 export async function buscarFavoritos(): Promise<Filme[]> {
   return carregar();
 }
 
-/**
- * Excluir um filme específicio pelo seu id
- */
-
-// Carregando a lsita de favoritos já existente no storage
+/** Excluir um filme específico pelo seu id */
 export async function removerFilmeFavorito(id: number): Promise<void> {
+  // Carregando a lista de favoritos já existentes no storage
   const favoritos = await carregar();
 
-  /* Filtrando a lista de favoritos já existente, avalinado qual filme deve sre "descartado/removido". Com isso, geramos uma nova lista atualizada SEM o filme que deve ser removido. */
+  /* Filtrando a lista de favoritos já existente, avaliando
+  qual filme deve ser "descartado/removido". Com isso, geramos uma nova
+  lista atualizada SEM o filme que deve ser removido. */
   const listaAtualizada = favoritos.filter(
     (filmeExistente) => filmeExistente.id !== id
   );
 
-  // Pegamos a nova lista atualizada e enviamos para o salvarLista gravar no storage
+  // Pegamos a nova lista atualizada, e enviamos para o salvarLista gravar no storage
   // Na prática, sobrescrevemos a lista anterior
   await salvarLista(listaAtualizada);
 }
 
-/**
- * Remover completamente do storage os favoritos salvos
- */
+/** Remover completamente do storage os favoritos salvos */
 export async function apagarTodosFavoritos(): Promise<void> {
   try {
     await AsyncStorage.removeItem(STORAGE_FAVORITOS);

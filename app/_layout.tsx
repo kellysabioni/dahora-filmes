@@ -8,6 +8,7 @@ export default function Layout() {
   const [fonteCarregada] = useFonts({
     Monoton: require("@/assets/fonts/Monoton-Regular.ttf"),
   });
+
   if (!fonteCarregada) {
     return <Loading />;
   }
@@ -15,6 +16,7 @@ export default function Layout() {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle="default" backgroundColor="#5451a6" />
+
       <Stack
         screenOptions={{
           headerStyle: {

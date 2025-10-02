@@ -19,18 +19,19 @@ export default function Busca() {
   // Hook para navegação através de programação usando o router
   const router = useRouter();
 
-  // Hook para armanezar o que for digitado pelo usuário
+  // Hook para armazenar o filme digitado pelo usuário
   const [filme, setFilme] = useState<string>("");
 
   const buscarFilmes = () => {
     if (!filme) {
-      Vibration.vibrate(400);
-      return Alert.alert("Ops! ", "Você deve digitar um filme!");
+      Vibration.vibrate();
+      return Alert.alert("Ops!", "Você deve digitar um filme!");
     }
 
-    //Navega para a tela de resultado, passadno o flme digitado como parâmetro para a rota
+    // Navega para a tela de resultados, passando o filme digitado como parâmetro de rota
     router.push(`/resultados?filme=${filme}`);
   };
+
   return (
     <>
       <Stack.Screen
