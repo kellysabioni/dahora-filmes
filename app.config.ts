@@ -38,4 +38,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       projectId: "c50cd064-1eb6-4be3-b067-184cc75c8f0b", // necessario para EAS
     },
   },
+  updates: {
+    url: "https://u.expo.dev/c50cd064-1eb6-4be3-b067-184cc75c8f0b",
+  },
+  runtimeVersion: {
+    policy: "appVersion",
+  },
 });
